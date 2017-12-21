@@ -16,5 +16,6 @@ enum Sorting {
 }
 
 protocol Storage {
-
+    func save(search: String, keepCapacity: Int)
+    func getLastSearches(sorting: Sorting, completion: (([String]) -> Void))
 }

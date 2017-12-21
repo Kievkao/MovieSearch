@@ -17,4 +17,12 @@ class SearchViewModel: SearchViewModelProtocol {
     let remainedCellsBeforeLoadMore = 5
     
     var items = [String]()
+    
+    private let storage: Storage
+    private let apiManager: APIManager
+    
+    init(storage: Storage, apiManager: APIManager) {
+        self.storage = storage
+        self.apiManager = apiManager
+    }
 }

@@ -7,7 +7,7 @@
 
 import CoreData
 
-final class CoreDataStorage: Storage {
+final class CoreDataStorage {
     private static let defaultSorting = Sorting.date(ascending: false)
     
     private var viewContext: NSManagedObjectContext { return persistentContainer.viewContext }
@@ -32,5 +32,15 @@ final class CoreDataStorage: Storage {
             print("CoreData save error: \(error)")
             return false
         }
+    }
+}
+
+extension CoreDataStorage: Storage {
+    func save(search: String, keepCapacity: Int) {
+        
+    }
+    
+    func getLastSearches(sorting: Sorting, completion: (([String]) -> Void)) {
+        
     }
 }

@@ -11,13 +11,19 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var flowController: FlowController?
+    var flowController: MainFlowController?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         guard let navigation = window?.rootViewController as? UINavigationController else { return false }
-        flowController = FlowController(navigationController: navigation)
-        flowController?.start()
+        startMainFlow(navigation: navigation)
         return true
+    }
+    
+    private func startMainFlow(navigation: UINavigationController) {
+        let storage = CoreDataStorage()
+        let apiManager = MoviesAPIManager()
+        flowController = MainFlowController(navigation: navigation, storage: storage, apiManager: apiManager)
+        flowController?.start()
     }
 }
 
