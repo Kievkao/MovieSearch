@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E6C348F1FEC5FDC0007D03B /* UIViewController+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6C348E1FEC5FDC0007D03B /* UIViewController+Utils.swift */; };
+		3E6C34911FEC600E0007D03B /* String+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6C34901FEC600E0007D03B /* String+Utils.swift */; };
+		3E6C34941FEC61A70007D03B /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6C34931FEC61A70007D03B /* MovieCell.swift */; };
+		3E6C34961FEC61FF0007D03B /* MovieCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6C34951FEC61FF0007D03B /* MovieCellViewModel.swift */; };
+		3E6C34981FEC653B0007D03B /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E6C34971FEC653B0007D03B /* RxCocoa.framework */; };
 		3ECD7A4E1FEBB0D100A25C4D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECD7A4D1FEBB0D100A25C4D /* AppDelegate.swift */; };
 		3ECD7A501FEBB0D100A25C4D /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECD7A4F1FEBB0D100A25C4D /* SearchViewController.swift */; };
 		3ECD7A531FEBB0D100A25C4D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3ECD7A511FEBB0D100A25C4D /* Main.storyboard */; };
@@ -43,6 +48,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3E6C348E1FEC5FDC0007D03B /* UIViewController+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Utils.swift"; sourceTree = "<group>"; };
+		3E6C34901FEC600E0007D03B /* String+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Utils.swift"; sourceTree = "<group>"; };
+		3E6C34931FEC61A70007D03B /* MovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
+		3E6C34951FEC61FF0007D03B /* MovieCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCellViewModel.swift; sourceTree = "<group>"; };
+		3E6C34971FEC653B0007D03B /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
 		3ECD7A4A1FEBB0D100A25C4D /* MovieSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3ECD7A4D1FEBB0D100A25C4D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3ECD7A4F1FEBB0D100A25C4D /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -79,6 +89,7 @@
 			files = (
 				3ECD7A941FEC36F100A25C4D /* Alamofire.framework in Frameworks */,
 				3ECD7A9F1FEC3B6900A25C4D /* RxSwift.framework in Frameworks */,
+				3E6C34981FEC653B0007D03B /* RxCocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,6 +103,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3E6C348D1FEC5FC50007D03B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3E6C348E1FEC5FDC0007D03B /* UIViewController+Utils.swift */,
+				3E6C34901FEC600E0007D03B /* String+Utils.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		3E6C34921FEC61950007D03B /* MovieCell */ = {
+			isa = PBXGroup;
+			children = (
+				3E6C34931FEC61A70007D03B /* MovieCell.swift */,
+				3E6C34951FEC61FF0007D03B /* MovieCellViewModel.swift */,
+			);
+			path = MovieCell;
+			sourceTree = "<group>";
+		};
 		3ECD7A411FEBB0D100A25C4D = {
 			isa = PBXGroup;
 			children = (
@@ -120,6 +149,7 @@
 				3ECD7A721FEBB14E00A25C4D /* Storage */,
 				3ECD7A711FEBB13800A25C4D /* Views */,
 				3ECD7A4D1FEBB0D100A25C4D /* AppDelegate.swift */,
+				3E6C348D1FEC5FC50007D03B /* Extensions */,
 				3ECD7A701FEBB11C00A25C4D /* SupportingFiles */,
 			);
 			path = MovieSearch;
@@ -229,6 +259,7 @@
 		3ECD7A921FEC36F100A25C4D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3E6C34971FEC653B0007D03B /* RxCocoa.framework */,
 				3ECD7A9E1FEC3B6900A25C4D /* RxSwift.framework */,
 				3ECD7A931FEC36F100A25C4D /* Alamofire.framework */,
 			);
@@ -247,6 +278,7 @@
 		3ECD7A991FEC38FB00A25C4D /* Results */ = {
 			isa = PBXGroup;
 			children = (
+				3E6C34921FEC61950007D03B /* MovieCell */,
 				3ECD7A9A1FEC390E00A25C4D /* ResultsViewController.swift */,
 				3ECD7A9C1FEC391E00A25C4D /* ResultsViewModel.swift */,
 			);
@@ -360,6 +392,7 @@
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
 			);
 			outputPaths = (
 			);
@@ -376,6 +409,7 @@
 			files = (
 				3ECD7A761FEBB21100A25C4D /* CoreDataStorage.swift in Sources */,
 				3ECD7A801FEBB6DE00A25C4D /* SearchViewModel.swift in Sources */,
+				3E6C348F1FEC5FDC0007D03B /* UIViewController+Utils.swift in Sources */,
 				3ECD7A501FEBB0D100A25C4D /* SearchViewController.swift in Sources */,
 				3ECD7A831FEBBBDC00A25C4D /* MainFlowController.swift in Sources */,
 				3ECD7A741FEBB18D00A25C4D /* Storage.swift in Sources */,
@@ -385,11 +419,14 @@
 				3ECD7A9B1FEC390E00A25C4D /* ResultsViewController.swift in Sources */,
 				3ECD7A8A1FEBC36000A25C4D /* ManagedSearch.swift in Sources */,
 				3ECD7A911FEC1A5B00A25C4D /* SearchService.swift in Sources */,
+				3E6C34911FEC600E0007D03B /* String+Utils.swift in Sources */,
 				3ECD7A4E1FEBB0D100A25C4D /* AppDelegate.swift in Sources */,
 				3ECD7A8E1FEC153300A25C4D /* NetworkRouter.swift in Sources */,
 				3ECD7A851FEBBE2D00A25C4D /* NetworkServiceFactory.swift in Sources */,
 				3ECD7A971FEC37C500A25C4D /* Search.swift in Sources */,
 				3ECD7A9D1FEC391E00A25C4D /* ResultsViewModel.swift in Sources */,
+				3E6C34941FEC61A70007D03B /* MovieCell.swift in Sources */,
+				3E6C34961FEC61FF0007D03B /* MovieCellViewModel.swift in Sources */,
 				3ECD7AA11FEC3EE100A25C4D /* Movie.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

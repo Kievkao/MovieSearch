@@ -10,10 +10,23 @@ import RxSwift
 
 protocol SearchViewModelProtocol {
     var items: Variable<[Search]> { get }
+    var errorSubject: PublishSubject<String> { get }
     
     func retrieveHistory()
     func hideHistory()
     func search(_ query: String)
+}
+
+enum SearchError: Error, CustomStringConvertible {
+    case noResults
+    case unknownError
+    
+    var description: String {
+        switch self {
+        case .noResults: return "No movies by request".localized()
+        case .unknownError: return "Unknown Error".localized()
+        }
+    }
 }
 
 class SearchViewModel: SearchViewModelProtocol {
@@ -24,6 +37,7 @@ class SearchViewModel: SearchViewModelProtocol {
     private static let historyCapasity = 10
     
     var items = Variable<[Search]>([])
+    var errorSubject = PublishSubject<String>()
     
     private let storage: Storage
     private let searchService: SearchServiceProtocol
@@ -42,12 +56,25 @@ class SearchViewModel: SearchViewModelProtocol {
     }
     
     func hideHistory() {
-        
+        items.value = []
     }
     
     func search(_ query: String) {
         searchService.searchMovie(query, page: 1) { [weak self] movies, error in
-            guard error == nil, let movies = movies else { return }
+            if let error = error {
+                self?.errorSubject.onNext(error.localizedDescription)
+                return
+            }
+            
+            guard let movies = movies else {
+                self?.errorSubject.onNext(SearchError.unknownError.localizedDescription)
+                return
+            }
+            
+            guard !movies.isEmpty else {
+                self?.errorSubject.onNext(SearchError.noResults.localizedDescription)
+                return
+            }
             
             self?.storage.save(search: query, keepCapacity: SearchViewModel.historyCapasity, completion: nil)
             self?.handlers.searchFinished(movies)

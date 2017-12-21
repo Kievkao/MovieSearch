@@ -7,6 +7,7 @@
 
 import UIKit
 import RxSwift
+import RxCocoa
 
 final class SearchViewController: UITableViewController {
     let disposeBag = DisposeBag()
@@ -52,6 +53,10 @@ final class SearchViewController: UITableViewController {
             .subscribe(onNext: { [weak self] _ in
                 self?.tableView.reloadData()
             }).disposed(by: disposeBag)
+        
+        viewModel.errorSubject
+            .bind(to: rx.errorPresentor)
+            .disposed(by: disposeBag)
     }
     
     //MARK: UITableViewDataSource
@@ -83,7 +88,7 @@ extension SearchViewController: UISearchBarDelegate {
         return true
     }
     
-    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         viewModel.hideHistory()
     }
     

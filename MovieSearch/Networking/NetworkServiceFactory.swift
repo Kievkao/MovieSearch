@@ -11,12 +11,14 @@ enum APIPath: String {
     case search = "/search/movie"
 }
 
-enum ResponseError: Error, CustomStringConvertible {
-    case parseError
+enum ParsingError: Error, CustomStringConvertible {
+    case jsonCast
+    case responseStructure
     
     var description: String {
         switch self {
-        case .parseError: return "Unable to parse response"
+        case .jsonCast: return "Convert to JSON error".localized()
+        case .responseStructure: return "Unable to parse response".localized()
         }
     }
 }

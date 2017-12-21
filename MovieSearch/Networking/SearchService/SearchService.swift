@@ -29,8 +29,13 @@ class SearchService: SearchServiceProtocol {
                 return
             }
             
-            guard let json = response.result.value as? [String: AnyObject], let results = json["results"] as? [[String: AnyObject]] else {
-                completion(nil, ResponseError.parseError)
+            guard let json = response.result.value as? [String: AnyObject] else {
+                completion(nil, ParsingError.jsonCast)
+                return
+            }
+            
+            guard let results = json["results"] as? [[String: AnyObject]] else {
+                completion(nil, ParsingError.responseStructure)
                 return
             }
             
