@@ -10,12 +10,12 @@ import UIKit
 final class MainFlowController {
     private let navigation: UINavigationController
     private let storage: Storage
-    private let apiManager: APIManager
+    private let serviceFactory: NetworkServiceFactory
     
-    init(navigation: UINavigationController, storage: Storage, apiManager: APIManager) {
+    init(navigation: UINavigationController, storage: Storage, serviceFactory: NetworkServiceFactory) {
         self.navigation = navigation
         self.storage = storage
-        self.apiManager = apiManager
+        self.serviceFactory = serviceFactory
     }
     
     func start() {
@@ -24,7 +24,7 @@ final class MainFlowController {
     
     private func searchViewController() -> UIViewController {
         let viewController = storyboard.instantiateViewController(withIdentifier: "Search") as! SearchViewController
-        viewController.viewModel = SearchViewModel(storage: storage, apiManager: apiManager)
+        viewController.viewModel = SearchViewModel(storage: storage, serviceFactory: serviceFactory)
         return viewController
     }
     

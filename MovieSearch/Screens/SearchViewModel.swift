@@ -19,10 +19,14 @@ class SearchViewModel: SearchViewModelProtocol {
     var items = [String]()
     
     private let storage: Storage
-    private let apiManager: APIManager
+    private let searchService: SearchServiceProtocol
     
-    init(storage: Storage, apiManager: APIManager) {
+    init(storage: Storage, serviceFactory: NetworkServiceFactory) {
         self.storage = storage
-        self.apiManager = apiManager
+        self.searchService = serviceFactory.searchService()
+    }
+    
+    func search(_ query: String) {
+        let request = searchService.searchMovieRequest(query: query, page: 0)
     }
 }

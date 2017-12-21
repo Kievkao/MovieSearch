@@ -41,5 +41,12 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>host</key>
+	<string>api.themoviedb.org/3</string>
+	<key>scheme</key>
+	<string>http</string>
+	<key>apiKey</key>
+	<string>2696829a81b1b5827d515ff12170
+0838</string>
 </dict>
 </plist>

@@ -11,7 +11,7 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var flowController: MainFlowController?
+    var flowController: MainFlowController!
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         guard let navigation = window?.rootViewController as? UINavigationController else { return false }
@@ -21,9 +21,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     private func startMainFlow(navigation: UINavigationController) {
         let storage = CoreDataStorage()
-        let apiManager = MoviesAPIManager()
-        flowController = MainFlowController(navigation: navigation, storage: storage, apiManager: apiManager)
-        flowController?.start()
+        let config = ConfigurationProvider()
+        let serviceFactory = MoviesServiceFactory(config: config)
+        flowController = MainFlowController(navigation: navigation, storage: storage, serviceFactory: serviceFactory)
+        flowController.start()
     }
 }
 

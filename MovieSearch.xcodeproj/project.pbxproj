@@ -19,9 +19,11 @@
 		3ECD7A7A1FEBB5A400A25C4D /* SuggestionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECD7A791FEBB5A400A25C4D /* SuggestionCell.swift */; };
 		3ECD7A801FEBB6DE00A25C4D /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECD7A7F1FEBB6DE00A25C4D /* SearchViewModel.swift */; };
 		3ECD7A831FEBBBDC00A25C4D /* MainFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECD7A821FEBBBDC00A25C4D /* MainFlowController.swift */; };
-		3ECD7A851FEBBE2D00A25C4D /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECD7A841FEBBE2D00A25C4D /* APIManager.swift */; };
-		3ECD7A871FEBC09400A25C4D /* MoviesAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECD7A861FEBC09400A25C4D /* MoviesAPIManager.swift */; };
+		3ECD7A851FEBBE2D00A25C4D /* NetworkServiceFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECD7A841FEBBE2D00A25C4D /* NetworkServiceFactory.swift */; };
+		3ECD7A871FEBC09400A25C4D /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECD7A861FEBC09400A25C4D /* SearchService.swift */; };
 		3ECD7A8A1FEBC36000A25C4D /* ManagedSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECD7A891FEBC36000A25C4D /* ManagedSearch.swift */; };
+		3ECD7A8C1FEC0EBA00A25C4D /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECD7A8B1FEC0EBA00A25C4D /* Configuration.swift */; };
+		3ECD7A8E1FEC153300A25C4D /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECD7A8D1FEC153300A25C4D /* NetworkService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,9 +53,11 @@
 		3ECD7A791FEBB5A400A25C4D /* SuggestionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionCell.swift; sourceTree = "<group>"; };
 		3ECD7A7F1FEBB6DE00A25C4D /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		3ECD7A821FEBBBDC00A25C4D /* MainFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFlowController.swift; sourceTree = "<group>"; };
-		3ECD7A841FEBBE2D00A25C4D /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
-		3ECD7A861FEBC09400A25C4D /* MoviesAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesAPIManager.swift; sourceTree = "<group>"; };
+		3ECD7A841FEBBE2D00A25C4D /* NetworkServiceFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceFactory.swift; sourceTree = "<group>"; };
+		3ECD7A861FEBC09400A25C4D /* SearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchService.swift; sourceTree = "<group>"; };
 		3ECD7A891FEBC36000A25C4D /* ManagedSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagedSearch.swift; sourceTree = "<group>"; };
+		3ECD7A8B1FEC0EBA00A25C4D /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
+		3ECD7A8D1FEC153300A25C4D /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +144,7 @@
 				3ECD7A881FEBC34B00A25C4D /* Entities */,
 				3ECD7A731FEBB18D00A25C4D /* Storage.swift */,
 				3ECD7A751FEBB21100A25C4D /* CoreDataStorage.swift */,
+				3ECD7A8B1FEC0EBA00A25C4D /* Configuration.swift */,
 				3ECD7A541FEBB0D100A25C4D /* MovieSearch.xcdatamodeld */,
 			);
 			path = Storage;
@@ -148,8 +153,9 @@
 		3ECD7A771FEBB2B500A25C4D /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				3ECD7A841FEBBE2D00A25C4D /* APIManager.swift */,
-				3ECD7A861FEBC09400A25C4D /* MoviesAPIManager.swift */,
+				3ECD7A841FEBBE2D00A25C4D /* NetworkServiceFactory.swift */,
+				3ECD7A8D1FEC153300A25C4D /* NetworkService.swift */,
+				3ECD7A861FEBC09400A25C4D /* SearchService.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -298,16 +304,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				3ECD7A761FEBB21100A25C4D /* CoreDataStorage.swift in Sources */,
-				3ECD7A871FEBC09400A25C4D /* MoviesAPIManager.swift in Sources */,
+				3ECD7A871FEBC09400A25C4D /* SearchService.swift in Sources */,
 				3ECD7A801FEBB6DE00A25C4D /* SearchViewModel.swift in Sources */,
 				3ECD7A501FEBB0D100A25C4D /* SearchViewController.swift in Sources */,
 				3ECD7A831FEBBBDC00A25C4D /* MainFlowController.swift in Sources */,
 				3ECD7A741FEBB18D00A25C4D /* Storage.swift in Sources */,
+				3ECD7A8C1FEC0EBA00A25C4D /* Configuration.swift in Sources */,
 				3ECD7A7A1FEBB5A400A25C4D /* SuggestionCell.swift in Sources */,
 				3ECD7A561FEBB0D100A25C4D /* MovieSearch.xcdatamodeld in Sources */,
 				3ECD7A8A1FEBC36000A25C4D /* ManagedSearch.swift in Sources */,
 				3ECD7A4E1FEBB0D100A25C4D /* AppDelegate.swift in Sources */,
-				3ECD7A851FEBBE2D00A25C4D /* APIManager.swift in Sources */,
+				3ECD7A8E1FEC153300A25C4D /* NetworkService.swift in Sources */,
+				3ECD7A851FEBBE2D00A25C4D /* NetworkServiceFactory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
