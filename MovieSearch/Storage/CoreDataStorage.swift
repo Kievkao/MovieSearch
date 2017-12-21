@@ -44,8 +44,6 @@ extension CoreDataStorage: Storage {
         
         if keepCapacity > 0, results.count >= keepCapacity {
             newSearch = results[keepCapacity - 1]
-            newSearch.query = search
-            newSearch.usageDate = Date()
             
             if results.count > keepCapacity {
                 results[keepCapacity...results.count - 1].forEach { viewContext.delete($0) }
@@ -57,6 +55,7 @@ extension CoreDataStorage: Storage {
         
         newSearch.query = search
         newSearch.usageDate = Date()
+        
         let success = saveContext()
         completion?(success)
     }

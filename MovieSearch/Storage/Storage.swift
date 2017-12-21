@@ -7,9 +7,6 @@
 
 import Foundation
 
-/**
- General types of sorting
- */
 enum Sorting {
     case alphabetical(ascending: Bool)
     case date(ascending: Bool)

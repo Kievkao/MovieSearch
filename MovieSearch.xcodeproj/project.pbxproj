@@ -198,7 +198,7 @@
 		3ECD7A771FEBB2B500A25C4D /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				3ECD7A8F1FEC1A3C00A25C4D /* SearchService */,
+				3ECD7A8F1FEC1A3C00A25C4D /* Services */,
 				3ECD7A841FEBBE2D00A25C4D /* NetworkServiceFactory.swift */,
 				3ECD7A8D1FEC153300A25C4D /* NetworkRouter.swift */,
 			);
@@ -217,6 +217,7 @@
 		3ECD7A7B1FEBB5D300A25C4D /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				3E6C34921FEC61950007D03B /* MovieCell */,
 				3ECD7A7C1FEBB5D700A25C4D /* SuggestionCell */,
 			);
 			path = Cells;
@@ -248,12 +249,12 @@
 			path = Entities;
 			sourceTree = "<group>";
 		};
-		3ECD7A8F1FEC1A3C00A25C4D /* SearchService */ = {
+		3ECD7A8F1FEC1A3C00A25C4D /* Services */ = {
 			isa = PBXGroup;
 			children = (
 				3ECD7A901FEC1A5B00A25C4D /* SearchService.swift */,
 			);
-			path = SearchService;
+			path = Services;
 			sourceTree = "<group>";
 		};
 		3ECD7A921FEC36F100A25C4D /* Frameworks */ = {
@@ -278,7 +279,6 @@
 		3ECD7A991FEC38FB00A25C4D /* Results */ = {
 			isa = PBXGroup;
 			children = (
-				3E6C34921FEC61950007D03B /* MovieCell */,
 				3ECD7A9A1FEC390E00A25C4D /* ResultsViewController.swift */,
 				3ECD7A9C1FEC391E00A25C4D /* ResultsViewModel.swift */,
 			);

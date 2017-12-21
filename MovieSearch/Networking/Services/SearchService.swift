@@ -43,7 +43,3 @@ class SearchService: SearchServiceProtocol {
         }
     }
 }
-
-private class SearchServiceParser {
-    
-}

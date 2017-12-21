@@ -28,10 +28,10 @@
             </objects>
             <point key="canvasLocation" x="-1009" y="100"/>
         </scene>
-        <!--Search-->
+        <!--Search Movie-->
         <scene sceneID="kA2-JU-gBq">
             <objects>
-                <tableViewController storyboardIdentifier="Search" title="Search" id="j16-UA-8l2" customClass="SearchViewController" customModule="MovieSearch" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="Search" title="Search Movie" id="j16-UA-8l2" customClass="SearchViewController" customModule="MovieSearch" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="CnG-ST-3zb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -72,10 +72,10 @@
             </objects>
             <point key="canvasLocation" x="-124" y="100.29985007496252"/>
         </scene>
-        <!--Results View Controller-->
+        <!--Results-->
         <scene sceneID="lye-m2-0S2">
             <objects>
-                <tableViewController storyboardIdentifier="ResultsViewController" id="BCa-W7-AgV" customClass="ResultsViewController" customModule="MovieSearch" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="ResultsViewController" title="Results" id="BCa-W7-AgV" customClass="ResultsViewController" customModule="MovieSearch" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="swG-qs-k10">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

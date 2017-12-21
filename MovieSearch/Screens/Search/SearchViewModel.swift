@@ -11,6 +11,7 @@ import RxSwift
 protocol SearchViewModelProtocol {
     var items: Variable<[Search]> { get }
     var errorSubject: PublishSubject<String> { get }
+    var progressSubject: PublishSubject<Bool> { get }
     
     func retrieveHistory()
     func hideHistory()
@@ -38,6 +39,7 @@ class SearchViewModel: SearchViewModelProtocol {
     
     var items = Variable<[Search]>([])
     var errorSubject = PublishSubject<String>()
+    var progressSubject = PublishSubject<Bool>()
     
     private let storage: Storage
     private let searchService: SearchServiceProtocol
@@ -60,7 +62,11 @@ class SearchViewModel: SearchViewModelProtocol {
     }
     
     func search(_ query: String) {
+        progressSubject.onNext(true)
+        
         searchService.searchMovie(query, page: 1) { [weak self] movies, error in
+            defer { self?.progressSubject.onNext(false) }
+            
             if let error = error {
                 self?.errorSubject.onNext(error.localizedDescription)
                 return

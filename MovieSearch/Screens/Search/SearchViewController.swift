@@ -17,7 +17,16 @@ final class SearchViewController: UITableViewController {
         let controller = UISearchController(searchResultsController: nil)
         controller.searchResultsUpdater = self
         controller.dimsBackgroundDuringPresentation = false
+        controller.searchBar.placeholder = "Enter movie name".localized()
         return controller
+    }()
+    
+    fileprivate lazy var activityIndicator: UIActivityIndicatorView = {
+        let indicator = UIActivityIndicatorView()
+        indicator.activityIndicatorViewStyle = .gray
+        indicator.center = view.center
+        indicator.hidesWhenStopped = true
+        return indicator
     }()
     
     private var isSearchActive: Bool {
@@ -39,12 +48,15 @@ final class SearchViewController: UITableViewController {
     }
     
     private func setupUI() {
-        definesPresentationContext = true
-        searchController.searchBar.delegate = self
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 50.0
         tableView.tableHeaderView = searchController.searchBar
         tableView.tableFooterView = UIView()
+        
+        definesPresentationContext = true
+        searchController.searchBar.delegate = self
+
+        view.addSubview(activityIndicator)
     }
     
     private func bindViewModel() {
@@ -56,6 +68,10 @@ final class SearchViewController: UITableViewController {
         
         viewModel.errorSubject
             .bind(to: rx.errorPresentor)
+            .disposed(by: disposeBag)
+        
+        viewModel.progressSubject
+            .bind(to: rx.progress)
             .disposed(by: disposeBag)
     }
     
@@ -95,5 +111,17 @@ extension SearchViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let text = searchBar.text else { return }
         viewModel.search(text)
+    }
+}
+
+extension Reactive where Base: SearchViewController {
+    var progress: Binder<Bool> {
+        return Binder(self.base) { controller, inProgress in
+            if inProgress {
+                controller.activityIndicator.startAnimating()
+            } else {
+                controller.activityIndicator.stopAnimating()
+            }
+        }
     }
 }
