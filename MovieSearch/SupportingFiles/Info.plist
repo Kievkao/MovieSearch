@@ -42,11 +42,17 @@
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>host</key>
-	<string>api.themoviedb.org/3</string>
+	<string>api.themoviedb.org</string>
+	<key>hostVersion</key>
+	<string>/3</string>
 	<key>scheme</key>
 	<string>http</string>
 	<key>apiKey</key>
-	<string>2696829a81b1b5827d515ff12170
-0838</string>
+	<string>2696829a81b1b5827d515ff121700838</string>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
 </dict>
 </plist>

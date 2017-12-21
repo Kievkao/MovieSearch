@@ -5,10 +5,15 @@
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13771"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="HelveticaNeue.ttc">
+            <string>HelveticaNeue</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Navigation Controller-->
         <scene sceneID="zO1-kN-KRi">
@@ -23,11 +28,11 @@
             </objects>
             <point key="canvasLocation" x="-1009" y="100"/>
         </scene>
-        <!--Search View Controller-->
+        <!--Search-->
         <scene sceneID="kA2-JU-gBq">
             <objects>
-                <tableViewController storyboardIdentifier="Search" id="j16-UA-8l2" customClass="SearchViewController" customModule="MovieSearch" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="CnG-ST-3zb">
+                <tableViewController storyboardIdentifier="Search" title="Search" id="j16-UA-8l2" customClass="SearchViewController" customModule="MovieSearch" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="CnG-ST-3zb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -36,20 +41,19 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="56"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VQf-cA-Pte" id="IL7-Ty-3G2">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="55.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hUJ-h2-0dk">
-                                            <rect key="frame" x="16" y="19" width="42" height="34"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
+                                            <rect key="frame" x="16" y="17" width="42" height="20"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="hUJ-h2-0dk" firstAttribute="top" secondItem="IL7-Ty-3G2" secondAttribute="topMargin" constant="8" id="2c3-Qz-kcd"/>
-                                        <constraint firstItem="hUJ-h2-0dk" firstAttribute="bottom" secondItem="IL7-Ty-3G2" secondAttribute="bottomMargin" constant="8" id="QrA-kb-TsX"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="hUJ-h2-0dk" secondAttribute="bottom" constant="8" id="Nn3-O4-IAK"/>
                                         <constraint firstItem="hUJ-h2-0dk" firstAttribute="leading" secondItem="IL7-Ty-3G2" secondAttribute="leading" constant="16" id="RGY-0O-yHs"/>
+                                        <constraint firstItem="hUJ-h2-0dk" firstAttribute="top" secondItem="IL7-Ty-3G2" secondAttribute="topMargin" constant="6" id="U0i-Vo-5oq"/>
                                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="hUJ-h2-0dk" secondAttribute="trailing" constant="8" id="aFq-qm-ZBB"/>
                                     </constraints>
                                 </tableViewCellContentView>
@@ -67,6 +71,34 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7UM-8d-EsI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-124" y="100.29985007496252"/>
+        </scene>
+        <!--Results View Controller-->
+        <scene sceneID="lye-m2-0S2">
+            <objects>
+                <tableViewController storyboardIdentifier="ResultsViewController" id="BCa-W7-AgV" customClass="ResultsViewController" customModule="MovieSearch" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="swG-qs-k10">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Nrt-Uc-W0d">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Nrt-Uc-W0d" id="2t6-lx-pru">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="BCa-W7-AgV" id="qvU-w7-c3i"/>
+                            <outlet property="delegate" destination="BCa-W7-AgV" id="1GL-e8-nHv"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MyM-iG-xSC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="665" y="97"/>
         </scene>
     </scenes>
 </document>

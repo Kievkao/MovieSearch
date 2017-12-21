@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private func startMainFlow(navigation: UINavigationController) {
         let storage = CoreDataStorage()
         let config = ConfigurationProvider()
-        let serviceFactory = MoviesServiceFactory(config: config)
+        let serviceFactory = NetworkServiceFactory(config: config)
         flowController = MainFlowController(navigation: navigation, storage: storage, serviceFactory: serviceFactory)
         flowController.start()
     }

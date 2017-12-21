@@ -1,5 +1,5 @@
 //
-//  NetworkService.swift
+//  NetworkRouter.swift
 //  MovieSearch
 //
 //  Created by Andrii Kravchenko on 21.12.17.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-class NetworkService {
+class NetworkRouter {
     enum Method: String {
         case get = "GET"
         case post = "POST"
@@ -15,14 +15,10 @@ class NetworkService {
         case delete = "DELETE"
     }
     
-    enum Path: String {
-        case search = "search"
-    }
-    
     private let config: Configuration
-    private let path: Path
+    private let path: APIPath
     
-    init(config: Configuration, path: Path) {
+    init(config: Configuration, path: APIPath) {
         self.config = config
         self.path = path
     }
@@ -31,7 +27,7 @@ class NetworkService {
         var urlComponents = URLComponents()
         urlComponents.scheme = config.scheme
         urlComponents.host = config.host
-        urlComponents.path = path.rawValue
+        urlComponents.path = config.hostVersion + path.rawValue
         
         var queryItems = [URLQueryItem(name: "api_key", value: config.apiKey)]
         

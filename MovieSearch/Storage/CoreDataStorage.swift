@@ -8,12 +8,10 @@
 import CoreData
 
 final class CoreDataStorage {
-    private static let defaultSorting = Sorting.date(ascending: false)
-    
     private var viewContext: NSManagedObjectContext { return persistentContainer.viewContext }
     
     private lazy var persistentContainer: NSPersistentContainer = {
-        let container = NSPersistentContainer(name: "IncidentAssist")
+        let container = NSPersistentContainer(name: "MovieSearch")
         
         container.loadPersistentStores(completionHandler: { storeDescription, error in
             if let error = error {
@@ -36,11 +34,44 @@ final class CoreDataStorage {
 }
 
 extension CoreDataStorage: Storage {
-    func save(search: String, keepCapacity: Int) {
+    func save(search: String, keepCapacity: Int, completion: ((Bool) -> Void)?) {
+        guard let results = getManagedLatestSearches(sorting: Sorting.date(ascending: false)) else {
+            completion?(false)
+            return
+        }
         
+        let newSearch: ManagedSearch
+        
+        if keepCapacity > 0, results.count >= keepCapacity {
+            newSearch = results[keepCapacity - 1]
+            newSearch.query = search
+            newSearch.usageDate = Date()
+            
+            if results.count > keepCapacity {
+                results[keepCapacity...results.count - 1].forEach { viewContext.delete($0) }
+            }
+        } else {
+            let existed = results.first(where: { $0.query?.lowercased() == search.lowercased() })
+            newSearch = existed ?? ManagedSearch(context: viewContext)
+        }
+        
+        newSearch.query = search
+        newSearch.usageDate = Date()
+        let success = saveContext()
+        completion?(success)
     }
     
-    func getLastSearches(sorting: Sorting, completion: (([String]) -> Void)) {
-        
+    func getLastSearches(sorting: Sorting, completion: (([Search]) -> Void)) {
+        if let results = getManagedLatestSearches(sorting: sorting) {
+            completion(results.flatMap { $0.plain() })
+        } else {
+            completion([])
+        }
+    }
+    
+    private func getManagedLatestSearches(sorting: Sorting) -> [ManagedSearch]? {
+        let fetchRequest: NSFetchRequest<ManagedSearch> = ManagedSearch.fetchRequest()
+        fetchRequest.sortDescriptors = [ManagedSearch.sortDescriptor(forType: sorting)]
+        return try? persistentContainer.viewContext.fetch(fetchRequest)
     }
 }
