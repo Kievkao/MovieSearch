@@ -7,6 +7,12 @@
 
 import Foundation
 
+/**
+ APIRouterProtocol is an interface of an object which creates general URLRequests based on input data and specific movies posters request
+ 
+ - func request(): create a general request based on REST method and parameters
+ - func imageRequest(): create a specific movies posters request based on image name and desired scale
+ */
 protocol APIRouterProtocol {
     func request(method: RESTMethod, params: [String: String]) -> URLRequest?
     func imageRequest(imageName: String, scale: ImageScale) -> URLRequest?

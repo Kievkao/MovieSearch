@@ -9,6 +9,9 @@ import UIKit
 import RxSwift
 import RxCocoa
 
+/**
+ SearchViewController displays a search field and list of saved successed latest results
+ */
 final class SearchViewController: UITableViewController {
     let disposeBag = DisposeBag()
     var viewModel: SearchViewModelProtocol!

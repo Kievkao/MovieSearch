@@ -12,6 +12,12 @@ enum Sorting {
     case date(ascending: Bool)
 }
 
+/**
+ Storage is an interface of an object which provides local storage for data
+ 
+ - func save(): save string search query, keeping count of max possible saved objects
+ - func getLastSearches(): retrieve saved search queries
+ */
 protocol Storage {
     func save(search: String, keepCapacity: Int, completion: ((Bool) -> Void)?)
     func getLastSearches(sorting: Sorting, completion: (([Search]) -> Void))

@@ -7,6 +7,11 @@
 
 import UIKit
 
+/**
+ MainFlowController is used for screens navigation
+ 
+ - func start(): push the initial view controller
+ */
 final class MainFlowController {
     private let navigation: UINavigationController
     private let storage: Storage

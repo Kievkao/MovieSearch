@@ -8,6 +8,16 @@
 import Foundation
 import RxSwift
 
+/**
+ SearchViewModelProtocol is an interface of view model for searching movies
+ - items: saved previous search queries, if retrieveHistory() was called before
+ - errorSubject: signal for emiting errors during search
+ - progressSubject: signal for emiting loading state changes
+ 
+ - func retrieveHistory(): retrieve previous successed search queries and put them to 'items' variable
+ - func hideHistory(): clear 'items' variable value
+ - func search(_ query: String): perform a search based on passed query string
+ */
 protocol SearchViewModelProtocol {
     var items: Variable<[Search]> { get }
     var errorSubject: PublishSubject<String> { get }

@@ -8,6 +8,15 @@
 import Foundation
 import RxSwift
 
+/**
+ ResultsViewModelProtocol is an interface of view model for retrieved movies list
+ - items: currently retrieved movies
+ - isDataLoading: set to true, if loading is in progress and vice versa
+ - errorSubject: signal for emiting errors during content loading
+ - serviceFactory: factory object for movie cell view model setup
+ 
+ - func loadNextPage(): load next page of content
+ */
 protocol ResultsViewModelProtocol {
     var items: Variable<[Movie]> { get }
     var isDataLoading: Bool { get }

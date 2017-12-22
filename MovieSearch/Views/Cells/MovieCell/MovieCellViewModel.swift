@@ -42,7 +42,7 @@ class MovieCellViewModel: MovieCellViewModelProtocol {
     }
     
     func loadImage() {
-        imageLoadingService.loadImage(name: movie.posterPath, scale: .small) { [weak self] image, error in
+        imageLoadingService.loadImage(name: movie.posterPath, scale: .medium) { [weak self] image, error in
             self?.poster.value = image
         }
     }

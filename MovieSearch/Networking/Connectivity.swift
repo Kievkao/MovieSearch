@@ -7,6 +7,11 @@
 
 import Alamofire
 
+/**
+ Connectivity is an interface of an object which detect internet connection availability
+ 
+ - isInternetConnected: bool value which shows current internet status (connected/disconnected)
+ */
 protocol Connectivity {
     var isInternetConnected: Bool { get }
 }

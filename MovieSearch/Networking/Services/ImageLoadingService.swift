@@ -16,6 +16,11 @@ enum ImageScale: String {
     case original = "w780"
 }
 
+/**
+ ImageLoadingServiceProtocol is an interface of object to retrieve images from defined host by the name
+ 
+ - func loadImage(): retrieve an image by it's name and provided scale
+ */
 protocol ImageLoadingServiceProtocol {
     func loadImage(name: String?, scale: ImageScale, completion: @escaping ((UIImage?, Error?) -> Void))
 }

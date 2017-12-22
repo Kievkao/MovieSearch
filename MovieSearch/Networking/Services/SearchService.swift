@@ -8,6 +8,11 @@
 import Foundation
 import Alamofire
 
+/**
+ SearchServiceProtocol is an interface of object to search movies based on input string query
+ 
+ - func searchMovie(): retrieve movies, if possible, based on input query and provided pagination index
+ */
 protocol SearchServiceProtocol {
     func searchMovie(_ query: String, page: Int, completion: @escaping ([Movie]?, Error?) -> Void)
 }

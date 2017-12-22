@@ -8,6 +8,9 @@
 import UIKit
 import RxSwift
 
+/**
+ ResultsViewController displays a list of movies which match a query from SearchViewController
+ */
 final class ResultsViewController: UITableViewController {
     let disposeBag = DisposeBag()    
     var viewModel: ResultsViewModel!

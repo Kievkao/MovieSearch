@@ -26,6 +26,12 @@ enum ParsingError: Error {
     }
 }
 
+/**
+ NetworkServiceFactoryProtocol is an interface of an object which creates needed network services
+ 
+ - func searchService(): create service for movies searching
+ - func imageLoadingService(): create service for movies posters loading
+ */
 protocol NetworkServiceFactoryProtocol {
     func searchService() -> SearchServiceProtocol
     func imageLoadingService() -> ImageLoadingServiceProtocol

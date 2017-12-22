@@ -7,6 +7,9 @@
 
 import Foundation
 
+/**
+ Configuration is an interface of an object which provides values from Info.plist file
+ */
 protocol Configuration {
     var host: String { get }
     var hostStartPath: String { get }
