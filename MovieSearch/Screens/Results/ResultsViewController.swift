@@ -56,6 +56,6 @@ class ResultsViewController: UITableViewController {
     }
     
     private func shouldLoadNextPage(indexPath: IndexPath) -> Bool {
-        return !viewModel.isDataLoading && indexPath.row > (viewModel.items.value.count - 3)
+        return !viewModel.isDataLoading && indexPath.row == (viewModel.items.value.count - 3)
     }
 }

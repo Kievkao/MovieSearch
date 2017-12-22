@@ -21,9 +21,10 @@ class SearchResultsViewModel: SearchResultsViewModelProtocol {
     let items: Variable<[Movie]>
     let errorSubject = PublishSubject<String>()
     let serviceFactory: NetworkServiceFactory
+    private let searchService: SearchServiceProtocol
     
     private let searchQuery: String
-    private var currentPage: Int = 0
+    private var nextPage: Int = 2
     
     var isDataLoading: Bool = false
     
@@ -31,9 +32,23 @@ class SearchResultsViewModel: SearchResultsViewModelProtocol {
         self.searchQuery = searchQuery
         self.items = Variable<[Movie]>(initialResults)
         self.serviceFactory = serviceFactory
+        self.searchService = serviceFactory.searchService()
     }
     
     func loadNextPage() {
         isDataLoading = true
+        
+        searchService.searchMovie(searchQuery, page: nextPage) { [weak self] movies, error in
+            defer { self?.isDataLoading = false }
+            
+            if let error = error {
+                self?.errorSubject.onNext(error.localizedDescription)
+                return
+            }
+            
+            guard let movies = movies, !movies.isEmpty else { return }
+            self?.items.value.append(contentsOf: movies)
+            self?.nextPage += 1
+        }
     }
 }
