@@ -9,9 +9,12 @@ import Foundation
 
 protocol Configuration {
     var host: String { get }
-    var hostVersion: String { get }
+    var hostStartPath: String { get }
     var scheme: String { get }
     var apiKey: String { get }
+    
+    var imagesHost: String { get }
+    var imagesScheme: String { get }
 }
 
 class ConfigurationProvider: Configuration {
@@ -26,8 +29,8 @@ class ConfigurationProvider: Configuration {
         return configDict["host"] as! String
     }
     
-    var hostVersion: String {
-        return configDict["hostVersion"] as! String
+    var hostStartPath: String {
+        return configDict["hostStartPath"] as! String
     }
     
     var scheme: String {
@@ -36,5 +39,13 @@ class ConfigurationProvider: Configuration {
     
     var apiKey: String {
         return configDict["apiKey"] as! String
+    }
+    
+    var imagesHost: String {
+        return configDict["imagesHost"] as! String
+    }
+    
+    var imagesScheme: String {
+        return configDict["imagesScheme"] as! String
     }
 }

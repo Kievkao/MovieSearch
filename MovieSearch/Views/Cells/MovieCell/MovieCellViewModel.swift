@@ -5,16 +5,21 @@
 //  Created by Andrii Kravchenko on 21.12.17.
 //
 
-import Foundation
+import UIKit
+import RxSwift
 
 protocol MovieCellViewModelProtocol {
     var name: String? { get }
     var releaseDate: String? { get }
-    var overview: String? { get }
+    var overview: String? { get }    
+    var poster: Variable<UIImage?> { get }
+    
+    func loadImage()
 }
 
 class MovieCellViewModel: MovieCellViewModelProtocol {
     private let movie: Movie
+    private let imageLoadingService: ImageLoadingService
     
     private static let dateFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()
@@ -28,8 +33,17 @@ class MovieCellViewModel: MovieCellViewModelProtocol {
         guard let date = movie.releaseDate else { return nil }
         return MovieCellViewModel.dateFormatter.string(from: date)
     }
+    
+    let poster = Variable<UIImage?>(nil)
 
-    init(movie: Movie) {
+    init(movie: Movie, serviceFactory: NetworkServiceFactory) {
         self.movie = movie
+        self.imageLoadingService = serviceFactory.imageLoadingService()
+    }
+    
+    func loadImage() {
+        imageLoadingService.loadImage(name: movie.posterPath, scale: .small) { [weak self] image, error in
+            self?.poster.value = image
+        }
     }
 }

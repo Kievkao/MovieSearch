@@ -43,12 +43,16 @@
 	</array>
 	<key>host</key>
 	<string>api.themoviedb.org</string>
-	<key>hostVersion</key>
+	<key>hostStartPath</key>
 	<string>/3</string>
 	<key>scheme</key>
 	<string>http</string>
 	<key>apiKey</key>
 	<string>2696829a81b1b5827d515ff121700838</string>
+	<key>imagesHost</key>
+	<string>image.tmdb.org</string>
+	<key>imagesScheme</key>
+	<string>http</string>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>

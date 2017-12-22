@@ -32,14 +32,14 @@ enum SearchError: Error, CustomStringConvertible {
 
 class SearchViewModel: SearchViewModelProtocol {
     struct HandlersContainer {
-        let searchFinished: ([Movie]) -> Void
+        let searchFinished: (String, [Movie]) -> Void
     }
     
     private static let historyCapasity = 10
     
-    var items = Variable<[Search]>([])
-    var errorSubject = PublishSubject<String>()
-    var progressSubject = PublishSubject<Bool>()
+    let items = Variable<[Search]>([])
+    let errorSubject = PublishSubject<String>()
+    let progressSubject = PublishSubject<Bool>()
     
     private let storage: Storage
     private let searchService: SearchServiceProtocol
@@ -83,7 +83,7 @@ class SearchViewModel: SearchViewModelProtocol {
             }
             
             self?.storage.save(search: query, keepCapacity: SearchViewModel.historyCapasity, completion: nil)
-            self?.handlers.searchFinished(movies)
+            self?.handlers.searchFinished(query, movies)
         }
     }
 }

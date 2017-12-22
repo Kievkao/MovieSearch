@@ -13,9 +13,9 @@ protocol SearchServiceProtocol {
 }
 
 class SearchService: SearchServiceProtocol {
-    private let router: NetworkRouter
+    private let router: APIRouter
     
-    init(router: NetworkRouter) {
+    init(router: APIRouter) {
         self.router = router
     }
     

@@ -1,5 +1,5 @@
 //
-//  NetworkRouter.swift
+//  APIRouter.swift
 //  MovieSearch
 //
 //  Created by Andrii Kravchenko on 21.12.17.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-class NetworkRouter {
+class APIRouter {
     enum Method: String {
         case get = "GET"
         case post = "POST"
@@ -27,7 +27,7 @@ class NetworkRouter {
         var urlComponents = URLComponents()
         urlComponents.scheme = config.scheme
         urlComponents.host = config.host
-        urlComponents.path = config.hostVersion + path.rawValue
+        urlComponents.path = config.hostStartPath + path.rawValue
         
         var queryItems = [URLQueryItem(name: "api_key", value: config.apiKey)]
         
@@ -41,6 +41,21 @@ class NetworkRouter {
         
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = method.rawValue        
+        return urlRequest
+    }
+}
+
+extension APIRouter {
+    func imageRequest(imageName: String, scale: ImageScale) -> URLRequest? {
+        var urlComponents = URLComponents()
+        urlComponents.scheme = config.imagesScheme
+        urlComponents.host = config.imagesHost
+        urlComponents.path = path.rawValue + scale.rawValue + imageName
+        
+        guard let url = urlComponents.url else { return nil }
+        
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = Method.get.rawValue
         return urlRequest
     }
 }

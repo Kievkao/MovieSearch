@@ -25,15 +25,16 @@ final class MainFlowController {
     private func searchViewController() -> UIViewController {
         let viewController = storyboard.instantiateViewController(withIdentifier: "Search") as! SearchViewController
         
-        let handlers = SearchViewModel.HandlersContainer(searchFinished: { movies in
-            self.navigation.pushViewController(self.searchResultViewController(), animated: true)
+        let handlers = SearchViewModel.HandlersContainer(searchFinished: { searchQuery, movies in
+            self.navigation.pushViewController(self.searchResultViewController(withMovies: movies, searchQuery: searchQuery), animated: true)
         })
         viewController.viewModel = SearchViewModel(storage: storage, serviceFactory: serviceFactory, handlers: handlers)
         return viewController
     }
     
-    private func searchResultViewController() -> UIViewController {
-        let viewController = storyboard.instantiateViewController(withIdentifier: "ResultsViewController") as! ResultsViewController        
+    private func searchResultViewController(withMovies movies: [Movie], searchQuery: String) -> UIViewController {
+        let viewController = storyboard.instantiateViewController(withIdentifier: "ResultsViewController") as! ResultsViewController
+        viewController.viewModel = SearchResultsViewModel(searchQuery: searchQuery, initialResults: movies, serviceFactory: serviceFactory)
         return viewController
     }
     
