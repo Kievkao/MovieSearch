@@ -19,7 +19,7 @@ protocol MovieCellViewModelProtocol {
 
 class MovieCellViewModel: MovieCellViewModelProtocol {
     private let movie: Movie
-    private let imageLoadingService: ImageLoadingService
+    private let imageLoadingService: ImageLoadingServiceProtocol
     
     private static let dateFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()

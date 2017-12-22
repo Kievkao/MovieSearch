@@ -5,7 +5,7 @@
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13771"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -32,10 +32,10 @@
         <scene sceneID="kA2-JU-gBq">
             <objects>
                 <tableViewController storyboardIdentifier="Search" title="Search Movie" id="j16-UA-8l2" customClass="SearchViewController" customModule="MovieSearch" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="CnG-ST-3zb">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="CnG-ST-3zb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.95686274510000002" green="0.52549019610000003" blue="0.37647058820000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="SuggestionCell" rowHeight="56" id="VQf-cA-Pte" customClass="SuggestionCell" customModule="MovieSearch" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="56"/>
@@ -47,6 +47,7 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hUJ-h2-0dk">
                                             <rect key="frame" x="16" y="17" width="42" height="20"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -57,6 +58,7 @@
                                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="hUJ-h2-0dk" secondAttribute="trailing" constant="8" id="aFq-qm-ZBB"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.95686274510000002" green="0.52549019610000003" blue="0.37647058820000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <outlet property="nameLabel" destination="hUJ-h2-0dk" id="EA3-XF-A5h"/>
                                 </connections>
@@ -79,7 +81,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="swG-qs-k10">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.95686274510000002" green="0.52549019610000003" blue="0.37647058820000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="MovieCell" rowHeight="373" id="Nrt-Uc-W0d" customClass="MovieCell" customModule="MovieSearch" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="373"/>
@@ -97,7 +99,7 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eF4-EF-iKk">
                                             <rect key="frame" x="24" y="288" width="327" height="21"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                            <nil key="textColor"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c0E-gF-b0g">
@@ -106,32 +108,43 @@
                                                 <constraint firstAttribute="height" constant="17" id="7KI-QK-jj9"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <nil key="textColor"/>
+                                            <color key="textColor" red="0.91372549020000005" green="0.91372549020000005" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Overview" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="syR-V4-Xmr">
-                                            <rect key="frame" x="24" y="342" width="327" height="12"/>
+                                            <rect key="frame" x="24" y="342" width="327" height="20.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="981-ss-5UA">
+                                            <rect key="frame" x="0.0" y="372" width="375" height="1"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="1" id="Fgj-zn-Jse"/>
+                                            </constraints>
+                                        </view>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="15G-0U-oPW" firstAttribute="leading" secondItem="2t6-lx-pru" secondAttribute="leading" constant="8" id="5R9-d9-hKl"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="syR-V4-Xmr" secondAttribute="trailing" constant="8" id="9qI-13-Uv8"/>
+                                        <constraint firstAttribute="trailing" secondItem="981-ss-5UA" secondAttribute="trailing" id="AB9-9b-7wf"/>
                                         <constraint firstItem="syR-V4-Xmr" firstAttribute="top" secondItem="c0E-gF-b0g" secondAttribute="bottom" constant="8" id="Bai-4G-ICp"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="c0E-gF-b0g" secondAttribute="trailing" constant="8" id="CoW-dv-z9J"/>
                                         <constraint firstAttribute="trailing" secondItem="15G-0U-oPW" secondAttribute="trailing" constant="8" id="GwQ-4V-67E"/>
                                         <constraint firstItem="eF4-EF-iKk" firstAttribute="top" secondItem="15G-0U-oPW" secondAttribute="bottom" constant="8" id="PFX-qh-ANH"/>
                                         <constraint firstItem="c0E-gF-b0g" firstAttribute="leading" secondItem="2t6-lx-pru" secondAttribute="leadingMargin" constant="8" id="TJq-Qt-mPX"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="eF4-EF-iKk" secondAttribute="trailing" constant="8" id="Ugk-pH-3fz"/>
+                                        <constraint firstAttribute="bottom" secondItem="981-ss-5UA" secondAttribute="bottom" id="VvY-XR-STH"/>
+                                        <constraint firstItem="981-ss-5UA" firstAttribute="top" secondItem="syR-V4-Xmr" secondAttribute="bottom" constant="9.5" id="atk-Xt-7rG"/>
                                         <constraint firstItem="syR-V4-Xmr" firstAttribute="leading" secondItem="2t6-lx-pru" secondAttribute="leadingMargin" constant="8" id="gCD-mY-wcE"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="syR-V4-Xmr" secondAttribute="bottom" constant="8" id="gam-IA-enU"/>
                                         <constraint firstItem="15G-0U-oPW" firstAttribute="top" secondItem="2t6-lx-pru" secondAttribute="top" constant="8" id="jn6-4U-hAk"/>
+                                        <constraint firstItem="981-ss-5UA" firstAttribute="leading" secondItem="2t6-lx-pru" secondAttribute="leading" id="mj6-Aa-Kuu"/>
                                         <constraint firstItem="eF4-EF-iKk" firstAttribute="leading" secondItem="2t6-lx-pru" secondAttribute="leadingMargin" constant="8" id="t7G-I1-SKV"/>
                                         <constraint firstItem="c0E-gF-b0g" firstAttribute="top" secondItem="eF4-EF-iKk" secondAttribute="bottom" constant="8" id="vWi-Kf-NCr"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.95686274510000002" green="0.52549019610000003" blue="0.37647058820000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <outlet property="nameLabel" destination="eF4-EF-iKk" id="NlC-oj-jsw"/>
                                     <outlet property="overviewLabel" destination="syR-V4-Xmr" id="vyT-o3-aDL"/>

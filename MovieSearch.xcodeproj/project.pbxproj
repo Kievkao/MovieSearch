@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		3E23AFA21FED0986005662D7 /* ImageLoadingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E23AFA11FED0986005662D7 /* ImageLoadingService.swift */; };
 		3E23AFA41FED09E3005662D7 /* AlamofireImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E23AFA31FED09E3005662D7 /* AlamofireImage.framework */; };
+		3E23AFA61FED20B8005662D7 /* Connectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E23AFA51FED20B8005662D7 /* Connectivity.swift */; };
+		3E23AFA81FED2964005662D7 /* UIColor+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E23AFA71FED2964005662D7 /* UIColor+Utils.swift */; };
 		3E6C348F1FEC5FDC0007D03B /* UIViewController+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6C348E1FEC5FDC0007D03B /* UIViewController+Utils.swift */; };
 		3E6C34911FEC600E0007D03B /* String+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6C34901FEC600E0007D03B /* String+Utils.swift */; };
 		3E6C34941FEC61A70007D03B /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6C34931FEC61A70007D03B /* MovieCell.swift */; };
@@ -52,6 +54,8 @@
 /* Begin PBXFileReference section */
 		3E23AFA11FED0986005662D7 /* ImageLoadingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoadingService.swift; sourceTree = "<group>"; };
 		3E23AFA31FED09E3005662D7 /* AlamofireImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlamofireImage.framework; path = Carthage/Build/iOS/AlamofireImage.framework; sourceTree = "<group>"; };
+		3E23AFA51FED20B8005662D7 /* Connectivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connectivity.swift; sourceTree = "<group>"; };
+		3E23AFA71FED2964005662D7 /* UIColor+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Utils.swift"; sourceTree = "<group>"; };
 		3E6C348E1FEC5FDC0007D03B /* UIViewController+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Utils.swift"; sourceTree = "<group>"; };
 		3E6C34901FEC600E0007D03B /* String+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Utils.swift"; sourceTree = "<group>"; };
 		3E6C34931FEC61A70007D03B /* MovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
@@ -113,6 +117,7 @@
 			children = (
 				3E6C348E1FEC5FDC0007D03B /* UIViewController+Utils.swift */,
 				3E6C34901FEC600E0007D03B /* String+Utils.swift */,
+				3E23AFA71FED2964005662D7 /* UIColor+Utils.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -206,6 +211,7 @@
 				3ECD7A8F1FEC1A3C00A25C4D /* Services */,
 				3ECD7A841FEBBE2D00A25C4D /* NetworkServiceFactory.swift */,
 				3ECD7A8D1FEC153300A25C4D /* APIRouter.swift */,
+				3E23AFA51FED20B8005662D7 /* Connectivity.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -427,8 +433,10 @@
 				3ECD7A561FEBB0D100A25C4D /* MovieSearch.xcdatamodeld in Sources */,
 				3ECD7A9B1FEC390E00A25C4D /* ResultsViewController.swift in Sources */,
 				3ECD7A8A1FEBC36000A25C4D /* ManagedSearch.swift in Sources */,
+				3E23AFA61FED20B8005662D7 /* Connectivity.swift in Sources */,
 				3ECD7A911FEC1A5B00A25C4D /* SearchService.swift in Sources */,
 				3E6C34911FEC600E0007D03B /* String+Utils.swift in Sources */,
+				3E23AFA81FED2964005662D7 /* UIColor+Utils.swift in Sources */,
 				3ECD7A4E1FEBB0D100A25C4D /* AppDelegate.swift in Sources */,
 				3ECD7A8E1FEC153300A25C4D /* APIRouter.swift in Sources */,
 				3ECD7A851FEBBE2D00A25C4D /* NetworkServiceFactory.swift in Sources */,

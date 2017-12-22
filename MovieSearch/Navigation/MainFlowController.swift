@@ -11,11 +11,13 @@ final class MainFlowController {
     private let navigation: UINavigationController
     private let storage: Storage
     private let serviceFactory: NetworkServiceFactory
+    private let connectivity: Connectivity
     
-    init(navigation: UINavigationController, storage: Storage, serviceFactory: NetworkServiceFactory) {
+    init(navigation: UINavigationController, storage: Storage, serviceFactory: NetworkServiceFactory, connectivity: Connectivity) {
         self.navigation = navigation
         self.storage = storage
         self.serviceFactory = serviceFactory
+        self.connectivity = connectivity
     }
     
     func start() {
@@ -28,13 +30,13 @@ final class MainFlowController {
         let handlers = SearchViewModel.HandlersContainer(searchFinished: { searchQuery, movies in
             self.navigation.pushViewController(self.searchResultViewController(withMovies: movies, searchQuery: searchQuery), animated: true)
         })
-        viewController.viewModel = SearchViewModel(storage: storage, serviceFactory: serviceFactory, handlers: handlers)
+        viewController.viewModel = SearchViewModel(storage: storage, serviceFactory: serviceFactory, connectivity: connectivity, handlers: handlers)
         return viewController
     }
     
     private func searchResultViewController(withMovies movies: [Movie], searchQuery: String) -> UIViewController {
         let viewController = storyboard.instantiateViewController(withIdentifier: "ResultsViewController") as! ResultsViewController
-        viewController.viewModel = SearchResultsViewModel(searchQuery: searchQuery, initialResults: movies, serviceFactory: serviceFactory)
+        viewController.viewModel = SearchResultsViewModel(searchQuery: searchQuery, initialResults: movies, serviceFactory: serviceFactory, connectivity: connectivity)
         return viewController
     }
     

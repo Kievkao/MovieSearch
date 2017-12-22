@@ -18,13 +18,15 @@ protocol SearchViewModelProtocol {
     func search(_ query: String)
 }
 
-enum SearchError: Error, CustomStringConvertible {
+enum SearchError: Error {
     case noResults
+    case noInternet
     case unknownError
     
-    var description: String {
+    var localizedDescription: String {
         switch self {
         case .noResults: return "No movies by request".localized()
+        case .noInternet: return "No Internet connection".localized()
         case .unknownError: return "Unknown Error".localized()
         }
     }
@@ -43,11 +45,13 @@ class SearchViewModel: SearchViewModelProtocol {
     
     private let storage: Storage
     private let searchService: SearchServiceProtocol
+    private let connectivity: Connectivity
     private let handlers: HandlersContainer
     
-    init(storage: Storage, serviceFactory: NetworkServiceFactory, handlers: HandlersContainer) {
+    init(storage: Storage, serviceFactory: NetworkServiceFactory, connectivity: Connectivity, handlers: HandlersContainer) {
         self.storage = storage
         self.searchService = serviceFactory.searchService()
+        self.connectivity = connectivity
         self.handlers = handlers
     }
     
@@ -62,28 +66,24 @@ class SearchViewModel: SearchViewModelProtocol {
     }
     
     func search(_ query: String) {
+        guard connectivity.isInternetConnected else {
+            errorSubject.onNext(SearchError.noInternet.localizedDescription)
+            return
+        }
+        
         progressSubject.onNext(true)
         
         searchService.searchMovie(query, page: 1) { [weak self] movies, error in
             defer { self?.progressSubject.onNext(false) }
+            guard let strongSelf = self else { return }
             
-            if let error = error {
-                self?.errorSubject.onNext(error.localizedDescription)
+            guard error == nil, let movies = movies, !movies.isEmpty else {
+                strongSelf.errorSubject.onNext(SearchError.noResults.localizedDescription)
                 return
             }
             
-            guard let movies = movies else {
-                self?.errorSubject.onNext(SearchError.unknownError.localizedDescription)
-                return
-            }
-            
-            guard !movies.isEmpty else {
-                self?.errorSubject.onNext(SearchError.noResults.localizedDescription)
-                return
-            }
-            
-            self?.storage.save(search: query, keepCapacity: SearchViewModel.historyCapasity, completion: nil)
-            self?.handlers.searchFinished(query, movies)
+            strongSelf.storage.save(search: query, keepCapacity: SearchViewModel.historyCapasity, completion: nil)
+            strongSelf.handlers.searchFinished(query, movies)
         }
     }
 }

@@ -8,16 +8,16 @@
 import Foundation
 
 class Movie {
-    var name: String?
-    var releaseDate: Date?
-    var overview: String?
-    var posterPath: String?
-    
     private static let dateFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
         return dateFormatter
     }()
+
+    let name: String?
+    let releaseDate: Date?
+    let overview: String?
+    let posterPath: String?
     
     init(json: [String: AnyObject]) {
         posterPath = json["poster_path"] as? String

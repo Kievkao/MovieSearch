@@ -12,12 +12,12 @@ enum APIPath: String {
     case images = "/t/p/"
 }
 
-enum ParsingError: Error, CustomStringConvertible {
+enum ParsingError: Error {
     case jsonCast
     case responseStructure
     case noData
     
-    var description: String {
+    var localizedDescription: String {
         switch self {
         case .jsonCast: return "Convert to JSON error".localized()
         case .responseStructure: return "Unable to parse response".localized()

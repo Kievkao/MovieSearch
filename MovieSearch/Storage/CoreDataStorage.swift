@@ -41,15 +41,15 @@ extension CoreDataStorage: Storage {
         }
         
         let newSearch: ManagedSearch
+        let existed = results.first(where: { $0.query?.lowercased() == search.lowercased() })
         
         if keepCapacity > 0, results.count >= keepCapacity {
-            newSearch = results[keepCapacity - 1]
+            newSearch = existed ?? results[keepCapacity - 1]
             
             if results.count > keepCapacity {
                 results[keepCapacity...results.count - 1].forEach { viewContext.delete($0) }
             }
         } else {
-            let existed = results.first(where: { $0.query?.lowercased() == search.lowercased() })
             newSearch = existed ?? ManagedSearch(context: viewContext)
         }
         

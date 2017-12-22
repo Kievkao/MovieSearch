@@ -16,7 +16,11 @@ enum ImageScale: String {
     case original = "w780"
 }
 
-class ImageLoadingService {
+protocol ImageLoadingServiceProtocol {
+    func loadImage(name: String?, scale: ImageScale, completion: @escaping ((UIImage?, Error?) -> Void))
+}
+
+class ImageLoadingService: ImageLoadingServiceProtocol {
     private let router: APIRouter
     let downloader = ImageDownloader(
         configuration: ImageDownloader.defaultURLSessionConfiguration(),
