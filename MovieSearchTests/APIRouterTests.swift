@@ -17,4 +17,9 @@ class APIRouterTests: XCTestCase {
         let config = ConfigurationMock()
         router = APIRouter(config: config, path: .search)
     }
+    
+    func testImageURL() {
+        let request = router.imageRequest(imageName: "Foo", scale: .small)
+        XCTAssertEqual(request?.httpMethod, "GET")
+    }
 }

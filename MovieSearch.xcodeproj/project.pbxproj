@@ -13,9 +13,6 @@
 		3E23AFA81FED2964005662D7 /* UIColor+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E23AFA71FED2964005662D7 /* UIColor+Utils.swift */; };
 		3E23AFAA1FED35D2005662D7 /* SearchViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E23AFA91FED35D2005662D7 /* SearchViewModelTests.swift */; };
 		3E23AFAC1FED35EA005662D7 /* ResultsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E23AFAB1FED35EA005662D7 /* ResultsViewModelTests.swift */; };
-		3E23AFAE1FED360B005662D7 /* SearchServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E23AFAD1FED360B005662D7 /* SearchServiceTests.swift */; };
-		3E23AFB01FED361B005662D7 /* ImageLoadingServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E23AFAF1FED361B005662D7 /* ImageLoadingServiceTests.swift */; };
-		3E23AFB21FED3631005662D7 /* NetworkServiceFactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E23AFB11FED3631005662D7 /* NetworkServiceFactoryTests.swift */; };
 		3E23AFB41FED3642005662D7 /* APIRouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E23AFB31FED3642005662D7 /* APIRouterTests.swift */; };
 		3E23AFB61FED365D005662D7 /* MovieTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E23AFB51FED365D005662D7 /* MovieTests.swift */; };
 		3E23AFB81FED371A005662D7 /* StorageMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E23AFB71FED371A005662D7 /* StorageMock.swift */; };
@@ -27,6 +24,7 @@
 		3E23AFC51FED3964005662D7 /* ConnectivityMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E23AFC41FED3964005662D7 /* ConnectivityMock.swift */; };
 		3E23AFC71FED4C86005662D7 /* APIRouterMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E23AFC61FED4C86005662D7 /* APIRouterMock.swift */; };
 		3E23AFC91FED4EA0005662D7 /* ConfigurationMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E23AFC81FED4EA0005662D7 /* ConfigurationMock.swift */; };
+		3E23AFCB1FED4FF0005662D7 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3ECD7A9E1FEC3B6900A25C4D /* RxSwift.framework */; };
 		3E6C348F1FEC5FDC0007D03B /* UIViewController+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6C348E1FEC5FDC0007D03B /* UIViewController+Utils.swift */; };
 		3E6C34911FEC600E0007D03B /* String+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6C34901FEC600E0007D03B /* String+Utils.swift */; };
 		3E6C34941FEC61A70007D03B /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6C34931FEC61A70007D03B /* MovieCell.swift */; };
@@ -73,9 +71,6 @@
 		3E23AFA71FED2964005662D7 /* UIColor+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Utils.swift"; sourceTree = "<group>"; };
 		3E23AFA91FED35D2005662D7 /* SearchViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModelTests.swift; sourceTree = "<group>"; };
 		3E23AFAB1FED35EA005662D7 /* ResultsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewModelTests.swift; sourceTree = "<group>"; };
-		3E23AFAD1FED360B005662D7 /* SearchServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchServiceTests.swift; sourceTree = "<group>"; };
-		3E23AFAF1FED361B005662D7 /* ImageLoadingServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoadingServiceTests.swift; sourceTree = "<group>"; };
-		3E23AFB11FED3631005662D7 /* NetworkServiceFactoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceFactoryTests.swift; sourceTree = "<group>"; };
 		3E23AFB31FED3642005662D7 /* APIRouterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRouterTests.swift; sourceTree = "<group>"; };
 		3E23AFB51FED365D005662D7 /* MovieTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTests.swift; sourceTree = "<group>"; };
 		3E23AFB71FED371A005662D7 /* StorageMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageMock.swift; sourceTree = "<group>"; };
@@ -136,6 +131,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E23AFCB1FED4FF0005662D7 /* RxSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -217,9 +213,6 @@
 				3E23AFB91FED3753005662D7 /* Mocks */,
 				3E23AFA91FED35D2005662D7 /* SearchViewModelTests.swift */,
 				3E23AFAB1FED35EA005662D7 /* ResultsViewModelTests.swift */,
-				3E23AFAD1FED360B005662D7 /* SearchServiceTests.swift */,
-				3E23AFAF1FED361B005662D7 /* ImageLoadingServiceTests.swift */,
-				3E23AFB11FED3631005662D7 /* NetworkServiceFactoryTests.swift */,
 				3E23AFB31FED3642005662D7 /* APIRouterTests.swift */,
 				3E23AFB51FED365D005662D7 /* MovieTests.swift */,
 				3ECD7A671FEBB0D100A25C4D /* Info.plist */,
@@ -379,6 +372,7 @@
 				3ECD7A5D1FEBB0D100A25C4D /* Sources */,
 				3ECD7A5E1FEBB0D100A25C4D /* Frameworks */,
 				3ECD7A5F1FEBB0D100A25C4D /* Resources */,
+				3E23AFCA1FED4FCF005662D7 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -450,6 +444,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		3E23AFCA1FED4FCF005662D7 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+		};
 		3ECD7A951FEC371A00A25C4D /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -506,9 +514,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3E23AFC31FED38EE005662D7 /* ImageLoadingServiceMock.swift in Sources */,
-				3E23AFB21FED3631005662D7 /* NetworkServiceFactoryTests.swift in Sources */,
 				3E23AFC51FED3964005662D7 /* ConnectivityMock.swift in Sources */,
-				3E23AFAE1FED360B005662D7 /* SearchServiceTests.swift in Sources */,
 				3E23AFC91FED4EA0005662D7 /* ConfigurationMock.swift in Sources */,
 				3E23AFAA1FED35D2005662D7 /* SearchViewModelTests.swift in Sources */,
 				3E23AFBF1FED3829005662D7 /* SearchServiceMock.swift in Sources */,
@@ -518,7 +524,6 @@
 				3E23AFC71FED4C86005662D7 /* APIRouterMock.swift in Sources */,
 				3E23AFB41FED3642005662D7 /* APIRouterTests.swift in Sources */,
 				3E23AFB61FED365D005662D7 /* MovieTests.swift in Sources */,
-				3E23AFB01FED361B005662D7 /* ImageLoadingServiceTests.swift in Sources */,
 				3E23AFBB1FED375F005662D7 /* SearchMock.swift in Sources */,
 				3E23AFAC1FED35EA005662D7 /* ResultsViewModelTests.swift in Sources */,
 			);
@@ -706,6 +711,10 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 499RHTV973;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = MovieSearchTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kievkao.MovieSearchTests;
@@ -723,6 +732,10 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 499RHTV973;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = MovieSearchTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kievkao.MovieSearchTests;
