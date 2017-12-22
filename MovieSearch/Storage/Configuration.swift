@@ -17,7 +17,7 @@ protocol Configuration {
     var imagesScheme: String { get }
 }
 
-class ConfigurationProvider: Configuration {
+final class ConfigurationProvider: Configuration {
     lazy var configDict: [String: AnyObject] = {
         let plistPath = Bundle.main.path(forResource: "Info", ofType: "plist")!
         let plistData = FileManager.default.contents(atPath: plistPath)!

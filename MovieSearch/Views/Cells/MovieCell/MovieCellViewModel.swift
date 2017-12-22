@@ -36,7 +36,7 @@ class MovieCellViewModel: MovieCellViewModelProtocol {
     
     let poster = Variable<UIImage?>(nil)
 
-    init(movie: Movie, serviceFactory: NetworkServiceFactory) {
+    init(movie: Movie, serviceFactory: NetworkServiceFactoryProtocol) {
         self.movie = movie
         self.imageLoadingService = serviceFactory.imageLoadingService()
     }

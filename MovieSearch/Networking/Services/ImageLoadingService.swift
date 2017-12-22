@@ -20,8 +20,8 @@ protocol ImageLoadingServiceProtocol {
     func loadImage(name: String?, scale: ImageScale, completion: @escaping ((UIImage?, Error?) -> Void))
 }
 
-class ImageLoadingService: ImageLoadingServiceProtocol {
-    private let router: APIRouter
+final class ImageLoadingService: ImageLoadingServiceProtocol {
+    private let router: APIRouterProtocol
     let downloader = ImageDownloader(
         configuration: ImageDownloader.defaultURLSessionConfiguration(),
         downloadPrioritization: .fifo,
@@ -29,7 +29,7 @@ class ImageLoadingService: ImageLoadingServiceProtocol {
         imageCache: AutoPurgingImageCache()
     )
     
-    init(router: APIRouter) {
+    init(router: APIRouterProtocol) {
         self.router = router
     }
     

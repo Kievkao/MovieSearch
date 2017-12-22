@@ -8,9 +8,9 @@
 import UIKit
 import RxSwift
 
-class ResultsViewController: UITableViewController {
+final class ResultsViewController: UITableViewController {
     let disposeBag = DisposeBag()    
-    var viewModel: SearchResultsViewModel!
+    var viewModel: ResultsViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()

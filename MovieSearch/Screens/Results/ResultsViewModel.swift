@@ -8,18 +8,18 @@
 import Foundation
 import RxSwift
 
-protocol SearchResultsViewModelProtocol {
+protocol ResultsViewModelProtocol {
     var items: Variable<[Movie]> { get }
     var isDataLoading: Bool { get }
     var errorSubject: PublishSubject<String> { get }
-    var serviceFactory: NetworkServiceFactory { get }
+    var serviceFactory: NetworkServiceFactoryProtocol { get }
     
     func loadNextPage()
 }
 
-class SearchResultsViewModel: SearchResultsViewModelProtocol {
+final class ResultsViewModel: ResultsViewModelProtocol {
     let items: Variable<[Movie]>
-    let serviceFactory: NetworkServiceFactory
+    let serviceFactory: NetworkServiceFactoryProtocol
     let errorSubject = PublishSubject<String>()
     
     private let searchService: SearchServiceProtocol
@@ -30,7 +30,7 @@ class SearchResultsViewModel: SearchResultsViewModelProtocol {
     
     var isDataLoading: Bool = false
     
-    init(searchQuery: String, initialResults: [Movie], serviceFactory: NetworkServiceFactory, connectivity: Connectivity) {
+    init(searchQuery: String, initialResults: [Movie], serviceFactory: NetworkServiceFactoryProtocol, connectivity: Connectivity) {
         self.searchQuery = searchQuery
         self.items = Variable<[Movie]>(initialResults)
         self.serviceFactory = serviceFactory

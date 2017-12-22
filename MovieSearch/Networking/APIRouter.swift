@@ -7,14 +7,19 @@
 
 import Foundation
 
-class APIRouter {
-    enum Method: String {
-        case get = "GET"
-        case post = "POST"
-        case put = "PUT"
-        case delete = "DELETE"
-    }
-    
+protocol APIRouterProtocol {
+    func request(method: RESTMethod, params: [String: String]) -> URLRequest?
+    func imageRequest(imageName: String, scale: ImageScale) -> URLRequest?
+}
+
+enum RESTMethod: String {
+    case get = "GET"
+    case post = "POST"
+    case put = "PUT"
+    case delete = "DELETE"
+}
+
+final class APIRouter {
     private let config: Configuration
     private let path: APIPath
     
@@ -22,8 +27,10 @@ class APIRouter {
         self.config = config
         self.path = path
     }
-    
-    func request(method: Method, params: [String: String]) -> URLRequest? {
+}
+
+extension APIRouter: APIRouterProtocol {
+    func request(method: RESTMethod, params: [String : String]) -> URLRequest? {
         var urlComponents = URLComponents()
         urlComponents.scheme = config.scheme
         urlComponents.host = config.host
@@ -33,19 +40,17 @@ class APIRouter {
         
         queryItems.append(contentsOf: params.map {
             URLQueryItem(name: $0.0, value: $0.1)
-        })        
+        })
         
         urlComponents.queryItems = queryItems
         
         guard let url = urlComponents.url else { return nil }
         
         var urlRequest = URLRequest(url: url)
-        urlRequest.httpMethod = method.rawValue        
+        urlRequest.httpMethod = method.rawValue
         return urlRequest
     }
-}
-
-extension APIRouter {
+    
     func imageRequest(imageName: String, scale: ImageScale) -> URLRequest? {
         var urlComponents = URLComponents()
         urlComponents.scheme = config.imagesScheme
@@ -55,7 +60,7 @@ extension APIRouter {
         guard let url = urlComponents.url else { return nil }
         
         var urlRequest = URLRequest(url: url)
-        urlRequest.httpMethod = Method.get.rawValue
+        urlRequest.httpMethod = RESTMethod.get.rawValue
         return urlRequest
     }
 }

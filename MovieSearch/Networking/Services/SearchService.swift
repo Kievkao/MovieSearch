@@ -12,10 +12,10 @@ protocol SearchServiceProtocol {
     func searchMovie(_ query: String, page: Int, completion: @escaping ([Movie]?, Error?) -> Void)
 }
 
-class SearchService: SearchServiceProtocol {
-    private let router: APIRouter
+final class SearchService: SearchServiceProtocol {
+    private let router: APIRouterProtocol
     
-    init(router: APIRouter) {
+    init(router: APIRouterProtocol) {
         self.router = router
     }
     

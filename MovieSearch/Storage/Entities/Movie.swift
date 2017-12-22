@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Movie {
+final class Movie {
     private static let dateFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"

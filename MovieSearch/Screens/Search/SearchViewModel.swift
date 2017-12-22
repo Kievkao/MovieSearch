@@ -32,7 +32,7 @@ enum SearchError: Error {
     }
 }
 
-class SearchViewModel: SearchViewModelProtocol {
+final class SearchViewModel: SearchViewModelProtocol {
     struct HandlersContainer {
         let searchFinished: (String, [Movie]) -> Void
     }
@@ -48,7 +48,7 @@ class SearchViewModel: SearchViewModelProtocol {
     private let connectivity: Connectivity
     private let handlers: HandlersContainer
     
-    init(storage: Storage, serviceFactory: NetworkServiceFactory, connectivity: Connectivity, handlers: HandlersContainer) {
+    init(storage: Storage, serviceFactory: NetworkServiceFactoryProtocol, connectivity: Connectivity, handlers: HandlersContainer) {
         self.storage = storage
         self.searchService = serviceFactory.searchService()
         self.connectivity = connectivity

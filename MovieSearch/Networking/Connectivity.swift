@@ -11,7 +11,7 @@ protocol Connectivity {
     var isInternetConnected: Bool { get }
 }
 
-class ConnectivityHandler: Connectivity {
+final class ConnectivityHandler: Connectivity {
     let reachability: NetworkReachabilityManager?
     
     init(reachability: NetworkReachabilityManager?) {

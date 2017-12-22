@@ -26,7 +26,12 @@ enum ParsingError: Error {
     }
 }
 
-class NetworkServiceFactory {
+protocol NetworkServiceFactoryProtocol {
+    func searchService() -> SearchServiceProtocol
+    func imageLoadingService() -> ImageLoadingServiceProtocol
+}
+
+final class NetworkServiceFactory: NetworkServiceFactoryProtocol {
     private let config: Configuration
     
     init(config: Configuration) {
@@ -38,7 +43,7 @@ class NetworkServiceFactory {
         return SearchService(router: router)
     }
     
-    func imageLoadingService() -> ImageLoadingService {
+    func imageLoadingService() -> ImageLoadingServiceProtocol {
         let router = APIRouter(config: config, path: .images)
         return ImageLoadingService(router: router)
     }

@@ -36,7 +36,7 @@ final class MainFlowController {
     
     private func searchResultViewController(withMovies movies: [Movie], searchQuery: String) -> UIViewController {
         let viewController = storyboard.instantiateViewController(withIdentifier: "ResultsViewController") as! ResultsViewController
-        viewController.viewModel = SearchResultsViewModel(searchQuery: searchQuery, initialResults: movies, serviceFactory: serviceFactory, connectivity: connectivity)
+        viewController.viewModel = ResultsViewModel(searchQuery: searchQuery, initialResults: movies, serviceFactory: serviceFactory, connectivity: connectivity)
         return viewController
     }
     
